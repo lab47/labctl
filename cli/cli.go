@@ -48,21 +48,21 @@ func NewCLI(args []string) (*CLI, error) {
 		"vcr create-repo": func() (cli.Command, error) {
 			return newCmd(
 				"create-repo",
-				"creates a new repository on svc.lab47.dev",
+				"creates a new repository on vcr.pub",
 				o.createRepoF,
 			), nil
 		},
 		"vcr docker-login": func() (cli.Command, error) {
 			return newCmd(
 				"docker-login",
-				"log the local docker instance into svc.lab47.dev",
+				"log the local docker instance into vcr.pub",
 				o.dockerLoginF,
 			), nil
 		},
 		"vcr kubernetes-secret": func() (cli.Command, error) {
 			return newCmd(
 				"kubernetes-secret",
-				"print out a kubernetes secret to access svc.lab47.dev",
+				"print out a kubernetes secret to access vcr.pub",
 				o.k8SecretF,
 			), nil
 		},
