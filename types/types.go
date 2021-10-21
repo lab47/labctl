@@ -33,3 +33,27 @@ type NamespaceDetails struct {
 type ListNamespaces struct {
 	Namespaces []NamespaceDetails `json:"namespaces"`
 }
+
+type CreditAddRequest struct {
+	Namespace string `json:"namespace"`
+	Credits   int64  `json:"credits"`
+	LocalPort int    `json:"local_port"`
+}
+
+type CreditAddResponse struct {
+	URL string `json:"url"`
+}
+
+type MachineAccountCreateRequest struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Write       bool   `json:"enable_write"`
+}
+
+type MachineAccountCreateResponse struct {
+	Token string `json:"tokn"`
+}
+
+type RepoSettingsApply struct {
+	Public *bool `json:"public"`
+}

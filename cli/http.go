@@ -117,6 +117,12 @@ func TokenPost(ctx context.Context, token, path string, req, ret interface{}) er
 	return perform(ctx, "POST", path, hdrs, req, ret)
 }
 
+func TokenPut(ctx context.Context, token, path string, req, ret interface{}) error {
+	hdrs := http.Header{}
+	setAuthorization(hdrs, "cytoken", token)
+	return perform(ctx, "PUT", path, hdrs, req, ret)
+}
+
 func Get(ctx context.Context, path string, ret interface{}) error {
 	return perform(ctx, "POST", path, nil, nil, ret)
 }
