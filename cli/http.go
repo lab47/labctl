@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 
 	"github.com/pkg/errors"
 )
@@ -55,7 +56,13 @@ func perform(ctx context.Context, method, path string, hdrs http.Header, val int
 		r = bytes.NewReader(body)
 	}
 
-	url := baseURL + path
+	var url string
+
+	if strings.HasPrefix(path, "https://") {
+		url = path
+	} else {
+		url = baseURL + path
+	}
 
 	req, err := http.NewRequest(method, url, r)
 	if err != nil {

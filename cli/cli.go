@@ -70,6 +70,20 @@ func NewCLI(args []string) (*CLI, error) {
 				o.creditAddF,
 			), nil
 		},
+		"personal-token": func() (cli.Command, error) {
+			return newCmd(
+				"personal-token",
+				"request a spiffe JWT for the current user",
+				o.personalToken,
+			), nil
+		},
+		"cert": func() (cli.Command, error) {
+			return newCmd(
+				"personal-token",
+				"request a spiffe JWT for the current user",
+				o.fulcioCert,
+			), nil
+		},
 		"vcr create-repo": func() (cli.Command, error) {
 			return newCmd(
 				"create-repo",
@@ -110,6 +124,13 @@ func NewCLI(args []string) (*CLI, error) {
 				"read-config",
 				"print out the config for a given reference",
 				o.fetchConfigF,
+			), nil
+		},
+		"vcr util verify": func() (cli.Command, error) {
+			return newCmd(
+				"verify",
+				"verify the signature on an image",
+				o.fetchSigF,
 			), nil
 		},
 	}

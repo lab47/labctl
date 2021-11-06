@@ -1,4 +1,5 @@
 install(
   "gh",
-  "gox"
+  "gox",
+  "step",
 )

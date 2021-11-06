@@ -57,3 +57,14 @@ type MachineAccountCreateResponse struct {
 type RepoSettingsApply struct {
 	Public *bool `json:"public"`
 }
+
+type PersonalTokenRequest struct {
+	JWT       bool   `json:"jwt"`
+	PublicKey []byte `json:"public_key,omitempty"`
+	TTL       int64  `json:"ttl"`
+}
+
+type PersonalTokenResponse struct {
+	JWT  string `json:"jwt,omitempty"`
+	X509 string `json:"x509,omitempty"`
+}
